@@ -1,11 +1,10 @@
-import logo from '../public/icono.svg'
+import { Header } from './components/Header'
+import './index.css'
 
 function App() {
   return (
     <>
-      <div>
-        <img src={logo} className="logo" alt="Warrior Gym Logo" />
-      </div>
+     <Header></Header>
     </>
   )
 }

@@ -1,0 +1,130 @@
+header {
+    font-weight: 200;
+    flex-direction: column;
+    font-size: x-small;
+    align-items: center;
+    background-color: var(--color-verde);
+    width: 100%;
+}
+
+.titulo {
+    text-align: center;
+}
+
+#searchbar {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+#searchbar input {
+    padding: 0.4rem;
+    background-color: rgb(0, 0, 0);
+    border: 0.1rem solid;
+    border-radius: 9%;
+    border-color: var(--color-verde);
+    color: white;
+}
+
+#searchbar button {
+    font-family: "Inter", sans-serif;
+    border: none;
+    background: none;
+    color: var(--color-verde);
+    font-size: smaller;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+h2 {
+    color: var(--color-verde);
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#entrenamientos {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem 2rem 1rem;
+}
+
+.card img {
+    object-fit: cover;
+    height: 10rem;
+}
+
+.card div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: small;
+}
+
+.favoritos {
+    background: none;
+}
+
+#navegacion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem;
+    color: black;
+    border-radius: 5%;
+    background-color: var(--color-verde);
+}
+
+.opciones {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    font-size: x-small;
+    font-weight: 600;
+    text-align: right;
+}
+
+.menu {
+    padding: 0;
+    background: none;
+}
+
+svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (min-width: 700px) {
+    .entrenamientos {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #navegacion {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: end;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 1rem;
+        background-color: var(--color-verde);
+        color: black;
+    }
+}
+
+@media (min-width: 1000px) {
+}
