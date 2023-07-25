@@ -1,4 +1,6 @@
 import logo from '../public/icono.svg'
+import AllExercisesPage from './pages/AllExercisesPage'
+import AllWorkoutsPage from './pages/AllWorkoutsPage'
 
 function App() {
   return (
@@ -10,4 +12,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
