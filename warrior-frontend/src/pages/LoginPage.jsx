@@ -1,16 +1,36 @@
-import { Link } from "react-router-dom"
-import './FormPage.css'
-import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom";
+import '../components/Forms.css';
+import { useContext, useState } from "react";
+import { loginService } from "../services";
+import { AuthContext } from "../context/AuthContext";
 
 export const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    const handleForm = async (e) => {
+        e.preventDefault();
+        setError('');
+
+        try {
+            const token = await loginService({email, password});
+            console.log(token);
+            login(token);
+            localStorage.setItem("token", token)
+            navigate("/exercises")
+            
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+    
     return (
         <section className="loginForm">
             <h3 className="formTitle">Iniciar Sesión</h3>
-            <form>                
+            <form onSubmit={handleForm}>                
                 <ul>
                     <li className="form-content">
                         <fieldset>
@@ -21,6 +41,7 @@ export const LoginPage = () => {
                                 id='email' 
                                 placeholder='Ingresa tu correo electrónico'
                                 required
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </fieldset>
                     </li>
@@ -33,17 +54,17 @@ export const LoginPage = () => {
                                 id='password' 
                                 placeholder='Ingresa tu contraseña'
                                 required
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </fieldset>
                     </li>
+                    {error ? <p className="error">{error}</p> : null}
                     <li className="form-content">
-                        <button className="entrar">
-                            <Link to='/workouts'>Entrar</Link>
-                        </button>                    
+                        <button className="entrar">Entrar</button>                    
                     </li>
                 </ul> 
             </form>
-            <p className="link">Aún no estas registrado? <Link to='/register' className="registrar">Registrate</Link></p>
+            <p className="link">Aún no estas registrado? <Link to='/user' className="registrar">Registrate</Link></p>
         </section>
     )
 }

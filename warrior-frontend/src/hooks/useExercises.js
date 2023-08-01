@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllExercisesService } from "../services/index";
 
-const useExercises = () => {
+export const useExercises = () => {
     const [exercises, setExercises] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -13,17 +13,15 @@ const useExercises = () => {
 
                 const data = await getAllExercisesService();
 
-                setExercises (data);
+                setExercises(data);
             } catch (error) {
-                setError(error.message)
+                setError(error.message);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         };
         loadExercises();
     }, []);
 
-    return { exercises, loading, error }
+    return { exercises, loading, error };
 };
-
-export default useExercises;

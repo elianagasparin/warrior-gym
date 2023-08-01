@@ -1,12 +1,14 @@
-import './FormPage.css'
+import '../components/Forms.css'
 import { useState } from "react"
 import { registerUserService } from "../services";
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterPage = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -14,6 +16,7 @@ export const RegisterPage = () => {
 
         try {
             await registerUserService({name, email, password});
+            navigate("/login");
         } catch (error) {
             setError(error.message);
         }
@@ -26,46 +29,46 @@ export const RegisterPage = () => {
                <ul>
                 <li className="form-content">
                     <fieldset>
-                        <label htmlFor='name'>Nombre:</label>
+                        <label htmlFor="name">Nombre:</label>
                         <input 
-                            type='name' 
-                            name='name' 
-                            id='name'
-                            placeholder='Introduce tu nombre' 
-                            required
+                            type="text" 
+                            name="name"
+                            id="name"
+                            placeholder="Introduce tu nombre"
                             onChange={(e) => setName(e.target.value)}
+                            autoComplete="off"
                         />
                     </fieldset>
                 </li>
                 <li className="form-content">
                     <fieldset>
-                        <label htmlFor='email'>Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input 
-                            type='email' 
-                            name='email'
-                            id='email' 
-                            placeholder='Ingresa tu correo electrónico'
-                            required
+                            type="email" 
+                            name="email"
+                            id="email" 
+                            placeholder="Ingresa tu correo electrónico"
                             onChange={(e) => setEmail(e.target.value)}
+                            autoComplete="off"
                         />
                     </fieldset>
                 </li>
                 <li className="form-content">
                     <fieldset>
-                        <label htmlFor='password'>Contraseña:</label>
+                        <label htmlFor="password">Contraseña:</label>
                         <input 
-                            type='password' 
-                            name='password'
-                            id='password' 
-                            placeholder='Ingresa tu contraseña'
-                            required
+                            type="password" 
+                            name="password"
+                            id="password"
+                            placeholder="Ingresa tu contraseña"
                             onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="off"
                         />
                     </fieldset>
                 </li>
                 {error ? <p className="error">{error}</p> : null}
                 <li className="form-content">
-                    <button className="entrar">Registrarme</button>                    
+                    <button type="submit" className="entrar">Registrarme</button>                    
                 </li>
             </ul> 
        </form>

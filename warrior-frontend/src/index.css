@@ -116,8 +116,7 @@ video {
     height: 9rem;
 }
 
-.info,
-footer {
+.info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -137,11 +136,6 @@ footer {
 
 .nosotros > li {
     text-align: center;
-    padding: 1rem;
-}
-
-footer {
-    font-size: x-small;
     padding: 1rem;
 }
 

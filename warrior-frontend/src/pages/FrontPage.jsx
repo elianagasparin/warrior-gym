@@ -1,7 +1,7 @@
 import { Categories } from "../components/Categories"
 import { Logo } from "../components/Logo"
 import { ContactList } from "../components/ContactList"
-import { LoginLink } from "../components/LoginLink"
+import { LoginButton } from "../components/LoginButton"
 import { Footer } from "../components/Footer"
 import '../index.css';
 
@@ -14,7 +14,7 @@ export const FrontPage = () => {
                 <h1>
                     Transforma tu cuerpo, fortalece tu mente. Bienvenido al gimnasio donde los límites no existen.
                 </h1>
-                <button><LoginLink text={'Ingresa ya'}/></button>
+                <button><LoginButton text={'Ingresa ya'}/></button>
                 <article>
                     <p>Ofrecemos entrenamientos diseñados para ayudarte a alcanzar tu meta fit.</p>
                 </article>
@@ -48,7 +48,7 @@ export const FrontPage = () => {
                 <h2 className="entrenamientos">Entrenamientos</h2>
                 <video src="/pexels-tima-miroshnichenko-6389563 (2160p).mp4" autoPlay loop></video>
                 <p>Ofrecemos gran variedad de entrenamientos hecha por los mejores entrenadores</p>
-                <button><LoginLink text={'Apuntate ya!'}/></button>
+                <button><LoginButton text={'Apuntate ya!'}/></button>
             </section>
         </main>
         <div className="info">
@@ -65,5 +65,5 @@ export const FrontPage = () => {
         </div>
         <Footer />
     </>
-    )
-}
+    );
+};
