@@ -46,7 +46,7 @@ export const FrontPage = () => {
             </section>
             <section className="bloque3">
                 <h2 className="entrenamientos">Entrenamientos</h2>
-                <video src="/pexels-tima-miroshnichenko-6389563 (2160p).mp4" autoPlay loop></video>
+                <video src="/videofront.mp4" autoPlay loop></video>
                 <p>Ofrecemos gran variedad de entrenamientos hecha por los mejores entrenadores</p>
                 <button><LoginButton text={'Apuntate ya!'}/></button>
             </section>

@@ -16,7 +16,7 @@ export const AuthProvider = ({children}) => {
     useEffect(() => {
         const userData = async () => {
             try {
-                const data = await userDataService({token});
+                const data = await userDataService(token);
                 setUser(data);
             } catch (error) {
              error.message   

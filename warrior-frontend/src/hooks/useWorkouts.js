@@ -1,30 +1,30 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { getAllExercisesService } from "../services/index";
+import { getAllWorkoutsService } from "../services/index";
 
-export const useExercises = () => {
-    const [exercises, setExercises] = useState([]);
+export const useWorkouts = () => {
+    const [workouts, setWorkouts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const { token } = useContext(AuthContext);
 
     useEffect(() => {
-        const loadExercises = async () => {
+        const loadWorkouts = async () => {
             try {
                 setLoading(true);
 
-                const data = await getAllExercisesService(token);
+                const data = await getAllWorkoutsService(token);
                 console.log(data);
 
-                setExercises(data);
+                setWorkouts(data);
             } catch (error) {
                 setError(error.message);
             } finally {
                 setLoading(false);
             }
         };
-        loadExercises();
+        loadWorkouts();
     }, []);
 
-    return { exercises, loading, error };
+    return { workouts, loading, error };
 };
