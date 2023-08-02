@@ -1,0 +1,16 @@
+/* Establecer el número de columnas según el ancho de la pantalla */
+@media screen and (min-width: 576px) {
+    .exercises-container {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 768px) {
+    .exercises-container {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 992px) {
+    .exercises-container {
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
