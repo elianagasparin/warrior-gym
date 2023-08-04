@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './LikesStyle.css';
 
+<<<<<<< HEAD
 export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
+=======
+const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
+>>>>>>> 4e184d1 (Like Page)
     const [liked, setLiked] = useState(initialLiked);
     const [likeCount, setLikeCount] = useState(initialLikeCount);
 
@@ -23,12 +27,26 @@ export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
         setLikeCount(data.likeCount.likes);
         setLiked(!liked);
         } catch (error) {
+<<<<<<< HEAD
         console.error('Error handling like/dislike:', error)}
+=======
+        console.error('Error handling like/dislike:', error);
+        }
+>>>>>>> 4e184d1 (Like Page)
     };
 
     return (
         <button className={`like-button ${liked ? 'liked' : ''}`} onClick={handleLikeDislike}>
+<<<<<<< HEAD
         {liked ? <span>💚</span> : <span>🤍</span>}
         </button>
     );
 };
+=======
+        {liked ? <span>🤍</span> : <span>💚</span>}
+        </button>
+    );
+};
+
+export default LikeButton;
+>>>>>>> 4e184d1 (Like Page)
