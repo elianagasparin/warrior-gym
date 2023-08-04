@@ -1,7 +1,8 @@
-import { LikedExercises } from '../components/Likes/LikedExercises';
+import React from 'react';
+import LikedExercises from '../components/Likes/LikedExercises';
+import { Footer } from '../components/Footer';
 import '../components/Likes/LikesStyle.css';
 import { NavBar } from '../components/NavBar/NavBar';
-import { Footer } from '../components/Footer';
 
 export const LikedPage = () => {
     return (

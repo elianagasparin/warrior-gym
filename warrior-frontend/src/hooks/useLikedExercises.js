@@ -1,31 +1,39 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { getLikedExercisesService } from "../services/index";
 
-export const useLikedExercises = () => {
+const useLikedExercises = () => {
     const [likedExercises, setLikedExercises] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
     const { token } = useContext(AuthContext);
 
     useEffect(() => {
-        const loadLikedExercises = async () => {
+        const fetchLikedExercises = async () => {
             try {
-                setLoading(true);
+                const response = await fetch(
+                    `${import.meta.env.VITE_API_HOST}/likes`,
+                    {
+                        headers: {
+                            Authorization: localStorage.getItem("token"),
+                        },
+                    }
+                );
 
-                const data = await getLikedExercisesService(token);
-                console.log(data);
+                if (!response.ok) {
+                    throw new Error(
+                        'No se pudieron obtener los ejercicios con "me gusta"'
+                    );
+                }
 
-                setLikedExercises(data);
+                const data = await response.json();
+                setLikedExercises(data.Exercises);
             } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
+                console.error(error);
             }
         };
 
-        loadLikedExercises();
+        fetchLikedExercises();
     }, []);
 
-    return { likedExercises, loading, error };
+    return likedExercises;
 };
+
+export default useLikedExercises;
