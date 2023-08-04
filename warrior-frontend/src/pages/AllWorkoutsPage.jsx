@@ -1,10 +1,13 @@
 // Página en la que vemos todos los entrenamientos disponibles
 
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/NavBar/NavBar";
 import { useWorkouts } from "../hooks/useWorkouts";
 
 export const AllWorkoutsPage = () => {
-  const { workouts } = useWorkouts();
+  const { workouts, loading, error } = useWorkouts();
+
+  if (loading) return <p>Cargando ejercicios</p>;
+  if (error) return error.message;
 
   return (
     <div>

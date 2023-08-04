@@ -1,10 +1,14 @@
 // Página en la que vemos todos los ejercicios disponibles
 
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/NavBar/NavBar";
 import { useExercises } from "../hooks/useExercises";
+import { Footer } from "../components/Footer"
 
 export const AllExercisesPage = () => {
   const { exercises, loading, error } = useExercises();
+
+  if (loading) return <p>Cargando ejercicios</p>;
+  if (error) return error.message;
 
   return (
     <div>
@@ -19,6 +23,7 @@ export const AllExercisesPage = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

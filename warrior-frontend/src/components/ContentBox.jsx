@@ -5,7 +5,7 @@ export const ContentBox = () => {
     return (
         <section className="contentBox">
             {exercise.map(exercise => (
-                <div key={exercise.id}>
+                <div key={exercise.id} className="content">
                     <img src={exercise.picture}></img>
                     <p>{exercise.name}</p>
                     <p>{exercise.description}</p>
