@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LikesStyle.css';
 
-export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
+const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
     const [liked, setLiked] = useState(initialLiked);
     const [likeCount, setLikeCount] = useState(initialLikeCount);
 
@@ -23,7 +23,8 @@ export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
         setLikeCount(data.likeCount.likes);
         setLiked(!liked);
         } catch (error) {
-        console.error('Error handling like/dislike:', error)}
+        console.error('Error handling like/dislike:', error);
+        }
     };
 
     return (
@@ -32,3 +33,5 @@ export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
         </button>
     );
 };
+
+export default LikeButton;

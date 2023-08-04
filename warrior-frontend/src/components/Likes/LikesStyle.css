@@ -89,28 +89,75 @@ body {
 .exercise p:nth-child(3) {
     margin: 5px 0;
 }
+/* Estilos para el botón de like/dislike */
+.like-button {
+    position: absolute;
+    bottom: 100px;
+    left: 90px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
 
 /* Establecer el número de columnas según el ancho de la pantalla */
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 350px) {
     .exercises-container {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 660px) {
     .exercises-container {
         grid-template-columns: repeat(3, 1fr);
     }
-}
 
-@media screen and (min-width: 920px) {
-    .exercises-container {
-        grid-template-columns: repeat(4, 1fr);
+    .exercise {
+        width: 175px;
+        height: 175px;
+    }
+
+    .exercise img {
+        width: 175px;
+        height: 125px;
+    }
+
+    .like-button {
+        position: absolute;
+        bottom: 130px;
+        left: 110px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
     }
 }
 
+@media screen and (min-width: 950px) {
+    .exercises-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .exercise {
+        width: 200px;
+        height: 200px;
+    }
+
+    .exercise img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .exercise p:nth-child(2) {
+        font-size: 12px;
+        padding: 2px;
+    }
+
 /* Estilos para el botón de like/dislike */
 .like-button {
+    position: absolute;
     bottom: 150px;
     left: 130px;
     border: none;
