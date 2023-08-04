@@ -107,6 +107,7 @@ body {
 
 /* Estilos para el botón de like/dislike */
 .like-button {
+    position: absolute;
     bottom: 150px;
     left: 130px;
     border: none;
