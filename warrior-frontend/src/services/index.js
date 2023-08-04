@@ -1,7 +1,7 @@
 const host = import.meta.env.VITE_API_HOST;
 
 export const registerUserService = async ({ name, email, password }) => {
-    const response = await fetch(`${host}/user`, {
+    const response = await fetch(`${host}/users/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const registerUserService = async ({ name, email, password }) => {
 };
 
 export const loginService = async ({ email, password }) => {
-    const response = await fetch(`${host}/login`, {
+    const response = await fetch(`${host}/users/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
