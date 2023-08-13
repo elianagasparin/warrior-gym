@@ -6,10 +6,6 @@ body {
     padding: 0;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 /* Estilos para la página principal */
 .page {
     display: flex;
@@ -42,8 +38,8 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 2vw;
     justify-items: center;
-    align-items: center;
-    width: 100%;
+    width: 100vw;
+    padding-bottom: 3vw;
 }
 
 /* Estilo para cada ejercicio */
@@ -89,49 +85,17 @@ body {
 .exercise p:nth-child(3) {
     margin: 5px 0;
 }
-/* Estilos para el botón de like/dislike */
-.like-button {
-    position: absolute;
-    bottom: 100px;
-    left: 90px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-}
 
 /* Establecer el número de columnas según el ancho de la pantalla */
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 400px) {
     .exercises-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 768px) {
     .exercises-container {
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    .exercise {
-        width: 175px;
-        height: 175px;
-    }
-
-    .exercise img {
-        width: 175px;
-        height: 125px;
-    }
-
-    .like-button {
-        position: absolute;
-        bottom: 130px;
-        left: 110px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        font-size: 16px;
-        margin: 5px;
     }
 }
 
@@ -139,30 +103,15 @@ body {
     .exercises-container {
         grid-template-columns: repeat(4, 1fr);
     }
+}
 
-    .exercise {
-        width: 200px;
-        height: 200px;
-    }
-
-    .exercise img {
-        width: 200px;
-        height: 150px;
-    }
-
-    .exercise p:nth-child(2) {
-        font-size: 12px;
-        padding: 2px;
-    }
-
-    .like-button {
-        position: absolute;
-        bottom: 150px;
-        left: 130px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        font-size: 16px;
-        margin: 5px;
-    }
+/* Estilos para el botón de like/dislike */
+.like-button {
+    bottom: 150px;
+    left: 130px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
 }
