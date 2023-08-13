@@ -135,7 +135,7 @@ body {
     }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 920px) {
     .exercises-container {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -155,14 +155,14 @@ body {
         padding: 2px;
     }
 
-/* Estilos para el botón de like/dislike */
-.like-button {
-    position: absolute;
-    bottom: 150px;
-    left: 130px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
+    .like-button {
+        position: absolute;
+        bottom: 150px;
+        left: 130px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+    }
 }
