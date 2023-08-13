@@ -26,7 +26,7 @@ export const RegisterPage = () => {
         <section className="registerForm">
             <h3 className="formTitle">Registro</h3>
             <form onSubmit={handleForm}>
-               <ul>
+            <ul>
                 <li className="form-content">
                     <fieldset>
                         <label htmlFor="name">Nombre:</label>
@@ -71,7 +71,7 @@ export const RegisterPage = () => {
                     <button type="submit" className="entrar">Registrarme</button>                    
                 </li>
             </ul> 
-       </form>
-    </section>
+            </form>
+        </section>
     )
 }

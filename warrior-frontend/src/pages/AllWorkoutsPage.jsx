@@ -1,5 +1,5 @@
 // Página en la que vemos todos los entrenamientos disponibles
-
+import './AllWorkoutsPage.css'
 import { NavBar } from "../components/NavBar/NavBar";
 import { useWorkouts } from "../hooks/useWorkouts";
 
@@ -12,14 +12,12 @@ export const AllWorkoutsPage = () => {
   return (
     <div>
       <NavBar />
-      <h1>Entrenamientos</h1>
-      <div>
+      <h1 className="tituloWorkout">Entrenamientos</h1>
+      <div className='workouts'>
         {workouts.map(workout => (
-          <div key={workout.id}>
-            <img src={workout.picture} alt={workout.name} />
-            <p className="exerciseName">{workout.name}</p>
+          <div className='card' key={workout.id}>
+            <p className="workoutName">{workout.name}</p>
             <p>{workout.description}</p>
-            <p>{workout.goalsId}</p>
             <p>{workout.exerciseId}</p>
           </div>
         ))}
