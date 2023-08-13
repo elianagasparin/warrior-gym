@@ -26,5 +26,9 @@ export const useExercises = () => {
         loadExercises();
     }, []);
 
-    return { exercises, loading, error };
+    const addExercises = (exercise) => {
+        setExercises([exercise, ...exercises]);
+    };
+
+    return { exercises, loading, error, addExercises };
 };

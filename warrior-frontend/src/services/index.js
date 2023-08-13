@@ -64,6 +64,24 @@ export const getAllExercisesService = async (token) => {
     return json.data;
 };
 
+export const newExerciseService = async ({ data, token }) => {
+    const response = await fetch(`${host}/exercises`, {
+        method: "POST",
+        body: data,
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+
+    return json.data;
+};
+
 export const getAllWorkoutsService = async (token) => {
     const response = await fetch(`${host}/workouts`, {
         headers: {
@@ -79,4 +97,21 @@ export const getAllWorkoutsService = async (token) => {
     }
 
     return json.data;
+};
+
+export const getLikedExercisesService = async (token) => {
+    const response = await fetch(`${host}/likes`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.exercises);
+    return json.exercises;
 };

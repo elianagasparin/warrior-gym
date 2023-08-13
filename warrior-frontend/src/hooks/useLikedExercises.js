@@ -1,32 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { getLikedExercisesService } from "../services/index";
 
-const useLikedExercises = () => {
+export const useLikedExercises = () => {
     const [likedExercises, setLikedExercises] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const { token } = useContext(AuthContext);
 
     useEffect(() => {
-        const fetchLikedExercises = async () => {
-        try {
-            const response = await fetch(`http://localhost:3000/likes`, {
-            headers: {
-                Authorization: localStorage.getItem('token'),
-            },
-            });
+        const loadLikedExercises = async () => {
+            try {
+                setLoading(true);
 
-            if (!response.ok) {
-            throw new Error('No se pudieron obtener los ejercicios con "me gusta"');
+                const data = await getLikedExercisesService(token);
+                console.log(data);
+
+                setLikedExercises(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
             }
-
-            const data = await response.json();
-            setLikedExercises(data.Exercises);
-        } catch (error) {
-            console.error(error);
-        }
         };
 
-        fetchLikedExercises();
+        loadLikedExercises();
     }, []);
 
-    return likedExercises;
+    return { likedExercises, loading, error };
 };
-
-export default useLikedExercises;
