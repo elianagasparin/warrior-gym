@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Roboto+Mono:wght@100;300;400;500&display=swap");
 
-* {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -9,8 +10,9 @@
 .page {
     display: flex;
     flex-direction: column;
-    background-color: #fdfdfd;
     min-height: 100vh;
+    background-color: #fdfdfd;
+    overflow: hidden;
     width: 100vw;
     position: relative;
 }
@@ -20,20 +22,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 90px;
-    padding-bottom: 50px;
+    padding: 90px 20px 50px;
     width: 100%;
 }
 
 /* Contenedor principal centrado en la página */
 .container {
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
 }
 
 /* Contenedor para los ejercicios */
 .exercises-container {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 2vw;
     justify-items: center;
     width: 100vw;
     padding-bottom: 3vw;
@@ -42,8 +45,8 @@
 /* Estilo para cada ejercicio */
 .exercise {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     text-align: center;
     border: 1px solid greenyellow;
     border-radius: 10px;
@@ -55,8 +58,8 @@
 
 /* Estilo para la imagen */
 .exercise img {
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     object-fit: contain;
     border-radius: 10px;
     margin: auto;
@@ -73,8 +76,8 @@
     margin: 0;
     font-family: monospace, sans-serif;
     font-weight: bold;
-    font-size: 11px;
-    padding: 5px;
+    font-size: 12px;
+    padding: 5px 0;
     color: rgb(3, 3, 3);
 }
 
@@ -82,32 +85,21 @@
 .exercise p:nth-child(3) {
     margin: 5px 0;
 }
-/* Estilos para el botón de like/dislike */
-.like-button {
-    position: absolute;
-    bottom: 100px;
-    left: 90px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-}
 
 /* Establecer el número de columnas según el ancho de la pantalla */
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 400px) {
     .exercises-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 768px) {
     .exercises-container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 920px) {
     .exercises-container {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -115,7 +107,6 @@
 
 /* Estilos para el botón de like/dislike */
 .like-button {
-    position: absolute;
     bottom: 150px;
     left: 130px;
     border: none;
