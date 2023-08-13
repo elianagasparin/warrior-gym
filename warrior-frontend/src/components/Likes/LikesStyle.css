@@ -28,15 +28,13 @@ body {
 
 /* Contenedor principal centrado en la página */
 .container {
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
 }
 
 /* Contenedor para los ejercicios */
 .exercises-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 2vw;
     justify-items: center;
     width: 100vw;
     padding-bottom: 3vw;
@@ -45,8 +43,8 @@ body {
 /* Estilo para cada ejercicio */
 .exercise {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     text-align: center;
     border: 1px solid greenyellow;
     border-radius: 10px;
@@ -58,8 +56,8 @@ body {
 
 /* Estilo para la imagen */
 .exercise img {
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
     object-fit: contain;
     border-radius: 10px;
     margin: auto;
@@ -76,8 +74,8 @@ body {
     margin: 0;
     font-family: monospace, sans-serif;
     font-weight: bold;
-    font-size: 12px;
-    padding: 5px 0;
+    font-size: 11px;
+    padding: 5px;
     color: rgb(3, 3, 3);
 }
 
