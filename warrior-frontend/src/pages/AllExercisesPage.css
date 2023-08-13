@@ -1,0 +1,49 @@
+.titulo {
+    color: white;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+    text-align: end;
+    padding: 1rem;
+}
+
+.exercises {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem 2rem 1rem;
+    margin: 1.5rem;
+    color: rgb(0, 0, 0);
+    background-color: #fdfdfd;
+    align-items: center;
+    width: 15rem;
+}
+
+.card img {
+    width: 10rem;
+}
+
+.exerciseName {
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.description {
+    font-size: small;
+}
+
+button.like-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
