@@ -1,3 +1,4 @@
+import React from "react";
 import { Categories } from "../components/Categories"
 import { Logo } from "../components/Logo"
 import { ContactList } from "../components/ContactList"

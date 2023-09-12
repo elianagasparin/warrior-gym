@@ -1,6 +1,10 @@
 // Página en la que vemos todos los ejercicios disponibles
 
+<<<<<<< HEAD
 import './AllExercisesPage.css'
+=======
+import React from "react";
+>>>>>>> ae55446 (cambios)
 import { NavBar } from "../components/NavBar/NavBar";
 import { useExercises } from "../hooks/useExercises";
 import { NewExercise } from '../components/Exercises/NewExercise';
