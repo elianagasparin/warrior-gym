@@ -6,10 +6,6 @@ body {
     padding: 0;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 /* Estilos para la página principal */
 .page {
     display: flex;
@@ -42,8 +38,8 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 2vw;
     justify-items: center;
-    align-items: center;
-    width: 100%;
+    width: 100vw;
+    padding-bottom: 3vw;
 }
 
 /* Estilo para cada ejercicio */
