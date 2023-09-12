@@ -1,13 +1,11 @@
 // Página en la que vemos todos los ejercicios disponibles
 
-import './AllExercisesPage.css'
 import { NavBar } from "../components/NavBar/NavBar";
 import { useExercises } from "../hooks/useExercises";
 import { NewExercise } from '../components/Exercises/NewExercise';
 import { ExerciseList } from '../components/Exercises/ExerciseList';
 import { Footer } from "../components/Footer"
-import { LikeButton } from '../components/Actions/Likes/LikeButton';
-import { NewExercise } from '../components/Actions/Exercises/NewExercise';
+import { PageTitle } from "../components/PageTitle";
 
 export const AllExercisesPage = () => {
   const { exercises, loading, error, addExercises } = useExercises();
