@@ -28,7 +28,7 @@ export const LikeButton = ({ exerciseId, initialLiked, initialLikeCount }) => {
 
     return (
         <button className={`like-button ${liked ? 'liked' : ''}`} onClick={handleLikeDislike}>
-        {liked ? <span>🤍</span> : <span>💚</span>}
+        {liked ? <span>💚</span> : <span>🤍</span>}
         </button>
     );
 };

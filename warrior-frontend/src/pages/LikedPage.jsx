@@ -1,5 +1,5 @@
-import { LikedExercises } from '../components/Actions/Likes/LikedExercises';
-import '../components/Actions/Likes/LikesStyle.css';
+import { LikedExercises } from '../components/Likes/LikedExercises';
+import '../components/Likes/LikesStyle.css';
 import { NavBar } from '../components/NavBar/NavBar';
 import { Footer } from '../components/Footer';
 
