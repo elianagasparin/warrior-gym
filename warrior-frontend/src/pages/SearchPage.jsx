@@ -1,8 +1,10 @@
 import { useState, useContext, useEffect } from "react";
 import { NavBar } from "../components/NavBar/NavBar";
-import { LikeButton } from "../components/Actions/Likes/LikeButton";
 import { AuthContext } from "../context/AuthContext";
 import { getAllExercisesService } from "../services";
+import { PageTitle } from "../components/PageTitle"
+import { ExerciseList } from "../components/Exercises/ExerciseList";
+import "./SearchPage.css";
 
 export const SearchPage = () => {
     
@@ -51,32 +53,15 @@ export const SearchPage = () => {
     return (
         <>
         <NavBar />
-        <section id="searchbar">
+        <section className="searchbar">
             <input 
                 type="text" 
                 placeholder="'Bajar de peso...'" 
                 value={search} 
                 onChange={handleChange}/>
-            <button>Buscar</button>
         </section>
-        <div className='exercises'>
-            <h3>Ejercicios</h3>
-            {exercises.map(exercise => (
-            <div className='card' details={exercise} key={exercise.id}>
-                <img src={exercise.picture} alt={exercise.name} />
-                <p className="exerciseName">{exercise.name}</p>
-                <p className='description' >{exercise.description}</p>
-                <LikeButton
-                    exerciseId={exercise.id}
-                    initialLiked={exercise.liked === 1}                                
-                    initialLikeCount={exercise.likeCount}
-                />
-            </div>
-            ))}
-        </div>
-        <div>
-            
-        </div>
+        <PageTitle title={'Ejercicios'}/>
+        <ExerciseList exercises={exercises}/>
         </>
     );
 };

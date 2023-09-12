@@ -2,6 +2,7 @@
 import './AllWorkoutsPage.css'
 import { NavBar } from "../components/NavBar/NavBar";
 import { useWorkouts } from "../hooks/useWorkouts";
+import { PageTitle } from '../components/PageTitle';
 
 export const AllWorkoutsPage = () => {
   const { workouts, loading, error } = useWorkouts();
@@ -12,7 +13,7 @@ export const AllWorkoutsPage = () => {
   return (
     <div>
       <NavBar />
-      <h1 className="tituloWorkout">Entrenamientos</h1>
+      <PageTitle title={'Entrenamientos'}/>
       <div className='workouts'>
         {workouts.map(workout => (
           <div className='card' key={workout.id}>

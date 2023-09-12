@@ -1,7 +1,7 @@
 import "./AddExercises.css";
 import { useState, useContext } from "react";
-import { AuthContext } from "../../../context/AuthContext";
-import { newExerciseService } from "../../../services/index";
+import { AuthContext } from "../../context/AuthContext";
+import { newExerciseService } from "../../services/index";
 
 export const NewExercise = ({addExercises}) => {
     const [error, setError] = useState('');

@@ -67,7 +67,7 @@ export const LoginPage = () => {
                     </li>
                 </ul> 
             </form>
-            <p className="link">Aún no estas registrado? <Link to='/user' className="registrar">Registrate</Link></p>
+            <p className="link">Aún no estas registrado? <Link to='/register' className="registrar">Registrate</Link></p>
         </section>
     )
 }
