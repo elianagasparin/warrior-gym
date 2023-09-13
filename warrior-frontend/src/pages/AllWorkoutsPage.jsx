@@ -13,7 +13,7 @@ export const AllWorkoutsPage = () => {
   return (
     <div>
       <NavBar />
-      <h1 className="tituloWorkout">Entrenamientos</h1>
+      <PageTitle title={'Entrenamientos'}/>
       <div className='workouts'>
         {workouts.map(workout => (
           <div className='card' key={workout.id}>
