@@ -1,7 +1,7 @@
 import './PageTitle.css'
 
-export const PageTitle = ({title}) => {
+export const PageTitle = ({title, className}) => {
     return (
-        <h1 className="title">{title}</h1>
+        <h1 className={className}>{title}</h1>
     )
 }

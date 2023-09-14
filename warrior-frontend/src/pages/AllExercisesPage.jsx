@@ -1,6 +1,5 @@
 // Página en la que vemos todos los ejercicios disponibles
 
-import './AllExercisesPage.css'
 import { NavBar } from "../components/NavBar/NavBar";
 import { useExercises } from "../hooks/useExercises";
 import { NewExercise } from '../components/Exercises/NewExercise';
@@ -17,7 +16,7 @@ export const AllExercisesPage = () => {
   return (
     <section>
       <NavBar />
-      <PageTitle title={'Ejercicios'}/>
+      <PageTitle className={"title"} title={'Ejercicios'}/>
       <NewExercise addExercises={addExercises}/>
       <ExerciseList exercises={exercises}/>
       <Footer />

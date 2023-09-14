@@ -60,7 +60,7 @@ export const SearchPage = () => {
                 value={search} 
                 onChange={handleChange}/>
         </section>
-        <PageTitle title={'Ejercicios'}/>
+        <PageTitle className={"title"} title={'Ejercicios'}/>
         <ExerciseList exercises={exercises}/>
         </>
     );

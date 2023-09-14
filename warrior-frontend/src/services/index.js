@@ -99,8 +99,25 @@ export const getAllWorkoutsService = async (token) => {
     return json.data;
 };
 
-export const getWorkoutExercisesService = async (token) => {
-    const response = await fetch(`${host}/workout/:id`, {
+export const getWorkoutInfoService = async (token, id) => {
+    const response = await fetch(`${host}/workouts/${id}`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.data);
+    return json.data;
+};
+
+export const getWorkoutExercisesService = async (token, id) => {
+    const response = await fetch(`${host}/workout/${id}`, {
         headers: {
             Authorization: token,
         },

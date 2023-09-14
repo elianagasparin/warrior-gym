@@ -6,3 +6,22 @@
     padding: 2rem;
     font-size: 1rem;
 }
+
+.likesTitle {
+    color: black;
+    letter-spacing: 3;
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 2rem;
+    font-size: 1rem;
+}
+
+.workoutName {
+    letter-spacing: 3;
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 2rem;
+    font-size: 3rem;
+}

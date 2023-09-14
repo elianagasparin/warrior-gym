@@ -14,12 +14,12 @@ export const AllWorkoutsPage = () => {
   return (
     <div>
       <NavBar />
-      <PageTitle title={'Entrenamientos'}/>
+      <PageTitle className={"title"} title={'Entrenamientos'}/>
       <div className='workouts'>
         {workouts.map(workout => (
           <div className='card' key={workout.id}>
             <Link to={`/workout/${workout.id}`}>
-              <p className="workoutName">{workout.name}</p>
+              <p className="workoutTitle">{workout.name}</p>
             </Link>
             <p>{workout.description}</p>
             <p>{workout.exerciseId}</p>
