@@ -3,6 +3,7 @@ import '../components/Forms.css';
 import { useContext, useState } from "react";
 import { loginService } from "../services";
 import { AuthContext } from "../context/AuthContext";
+import { Button } from "../components/Button";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -29,6 +30,10 @@ export const LoginPage = () => {
             setError(error.message);
         }
     };
+
+    const handleClick = () => {
+        console.log('Acción exitosa.')
+    }
     
     return (
         <section className="loginForm">
@@ -63,7 +68,7 @@ export const LoginPage = () => {
                     </li>
                     {error ? <p className="error">{error}</p> : null}
                     <li className="form-content">
-                        <button className="entrar">Entrar</button>                    
+                        <Button onClick={handleClick} className={'entrar'} text={'Entrar'} type={'submit'} />                   
                     </li>
                 </ul> 
             </form>

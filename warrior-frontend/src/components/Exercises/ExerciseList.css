@@ -3,19 +3,20 @@
     list-style: none;
     align-items: stretch;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-content: center;
 }
 
 .card {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    padding: 2rem 1rem 2rem 1rem;
     margin: 2rem;
+    padding: 2rem;
     color: rgb(0, 0, 0);
+    width: 18rem;
     background-color: #fdfdfd;
     align-items: center;
-    width: 16rem;
+    justify-content: space-between;
 }
 
 .card img {

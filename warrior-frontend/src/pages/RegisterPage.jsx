@@ -2,6 +2,7 @@ import '../components/Forms.css'
 import { useState } from "react"
 import { registerUserService } from "../services";
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/Button';
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
@@ -21,6 +22,10 @@ export const RegisterPage = () => {
             setError(error.message);
         }
     };
+
+    const handleClick = () => {
+        console.log('Acción exitosa.');
+    }
 
     return (
         <section className="registerForm">
@@ -67,10 +72,8 @@ export const RegisterPage = () => {
                     </fieldset>
                 </li>
                 {error ? <p className="error">{error}</p> : null}
-                <li className="form-content">
-                    <button type="submit" className="entrar">Registrarme</button>                    
-                </li>
             </ul> 
+            <Button type={'submit'} className={'entrar'} text={"Registrarme"} onClick={handleClick} />
             </form>
         </section>
     )

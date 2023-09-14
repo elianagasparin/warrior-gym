@@ -99,6 +99,23 @@ export const getAllWorkoutsService = async (token) => {
     return json.data;
 };
 
+export const getWorkoutExercisesService = async (token) => {
+    const response = await fetch(`${host}/workout/:id`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.data);
+    return json.data;
+};
+
 export const getLikedExercisesService = async (token) => {
     const response = await fetch(`${host}/likes`, {
         headers: {

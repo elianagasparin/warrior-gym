@@ -3,6 +3,7 @@ import { FrontPage } from "./pages/FrontPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { AllWorkoutsPage } from "./pages/AllWorkoutsPage";
+import { WorkoutDetailsPage } from "./pages/WorkoutDetailsPage";
 import { AllExercisesPage } from "./pages/AllExercisesPage";
 import { LikedPage } from "./pages/LikedPage";
 import { FavoritePage } from "./pages/FavoritePage";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path='/workouts' element={<AllWorkoutsPage />} />
+        <Route path='/workout/:id' element={<WorkoutDetailsPage />} />
         <Route path='/exercises' element={<AllExercisesPage />} />
         <Route path="/likes" element={<LikedPage />} />
         <Route path="/favorites" element={<FavoritePage />} />
