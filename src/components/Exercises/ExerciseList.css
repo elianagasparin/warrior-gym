@@ -1,0 +1,42 @@
+.exercises {
+    display: flex;
+    list-style: none;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem 2rem 1rem;
+    margin: 2rem;
+    color: rgb(0, 0, 0);
+    background-color: #fdfdfd;
+    align-items: center;
+    width: 16rem;
+}
+
+.card img {
+    width: 10rem;
+}
+
+.exerciseName {
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.description {
+    font-size: small;
+}
+
+button.like-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}

@@ -1,0 +1,17 @@
+form.exerciseForm ul {
+    display: none;
+}
+
+form ul.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+button.add {
+    width: 1.5rem;
+    background: none;
+    margin: 1rem;
+}
