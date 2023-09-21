@@ -2,8 +2,18 @@ import "./AddExercises.css";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { newExerciseService } from "../../services/index";
+import { useExercises } from "../../hooks/useExercises";
+import { MuscleGroupList } from "../MuscleGroupList";
+import { useMuscleGroups } from "../../hooks/useMuscleGroups";
 
-export const NewExercise = ({addExercises}) => {
+export const NewExercise = () => {
+    const { addExercises } = useExercises();
+    const { muscleGroups } = useMuscleGroups();
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [picture, setPicture] = useState("");
+    const [type, setType] = useState("");
+    const [muscleGroupId, setMuscleGroup] = useState("");
     const [error, setError] = useState('');
     const [sending, setSending] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -11,12 +21,12 @@ export const NewExercise = ({addExercises}) => {
 
     const handleForm = async (e) => {
         e.preventDefault();
+        setError('');
 
         try {
             setSending(true);
-
-            const data = new FormData(e.target);
-            const exercise = await newExerciseService({data, token});
+            
+            const exercise = await newExerciseService({name, description, picture, type, muscleGroupId, token});
 
             addExercises({exercise});
 
@@ -45,6 +55,7 @@ export const NewExercise = ({addExercises}) => {
                                 name="name"
                                 id="name"
                                 placeholder="Introduce el nombre"
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </fieldset>
                     </li>
@@ -56,6 +67,7 @@ export const NewExercise = ({addExercises}) => {
                                 name="description"
                                 id="description"
                                 placeholder="Introduce una descripción"
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </fieldset>
                     </li>
@@ -66,6 +78,7 @@ export const NewExercise = ({addExercises}) => {
                                 type="file"
                                 name="picture"
                                 id="picture"
+                                onChange={(e) => setPicture(e.target.value)}
                             />
                         </fieldset>
                     </li>
@@ -77,22 +90,14 @@ export const NewExercise = ({addExercises}) => {
                                 name="type"
                                 id="type"
                                 placeholder="Introduce tipologia del ejercicio"
+                                onChange={(e) => setType(e.target.value)}
                             />
                         </fieldset>
                     </li>
                     <li className="form-content">
                         <fieldset>
                             <label htmlFor="muscleGroup">Grupo muscular:</label>
-                            <select
-                                name="muscleGroup"
-                                id="muscleGroup"
-                            >
-                                <option value="brazo">Brazos</option>
-                                <option value="pierna">Piernas</option>
-                                <option value="espalda">Espalda</option>
-                                <option value="pecho">Pecho</option>
-                                <option value="hombro">Hombro</option>
-                            </select>
+                            <MuscleGroupList muscleGroups={muscleGroups} onChange={(e) => setMuscleGroup(e.target.value)} />
                         </fieldset>
                     </li>
                     {sending ? <p>Añadiendo ejercicio</p> : null}

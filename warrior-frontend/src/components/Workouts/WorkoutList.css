@@ -1,0 +1,19 @@
+.workouts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.workoutTitle {
+    font-size: 2rem;
+    text-align: center;
+}
+
+form.workoutForm ul {
+    display: none;
+}
+
+form ul.open {
+    display: flex;
+}

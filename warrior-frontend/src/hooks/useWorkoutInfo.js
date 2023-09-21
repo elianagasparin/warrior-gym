@@ -28,5 +28,9 @@ export const useWorkoutInfo = () => {
         loadWorkouts();
     }, []);
 
-    return { workouts, loading, error };
+    const editWorkout = (workout) => {
+        setWorkouts([workout, ...workouts]);
+    };
+
+    return { workouts, loading, error, editWorkout };
 };

@@ -1,5 +1,6 @@
 import { useWorkoutInfo } from "../../hooks/useWorkoutInfo"
 import { PageTitle } from "../PageTitle";
+import "./WorkoutsInfo.css"
 
 export const WorkoutInfo = () => {
     const { workouts, loading, error } = useWorkoutInfo();
@@ -10,7 +11,7 @@ export const WorkoutInfo = () => {
     return (
         <>
         <PageTitle className={'workoutName'} title={workouts.name} />
-        <p>{workouts.description}</p>
+        <p className="workoutDescription">{workouts.description}</p>
         </>
     )
 }

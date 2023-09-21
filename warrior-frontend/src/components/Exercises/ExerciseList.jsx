@@ -4,7 +4,7 @@ import './ExerciseList.css'
 export const ExerciseList = ({exercises}) => {
     return (
         <ul className='exercises'>
-        {exercises.map(exercise => (
+        {exercises.map((exercise) => (
           <li className='card' details={exercise} key={exercise.id}>
             <img src={exercise.picture} alt={exercise.name} />
             <p className="exerciseName">{exercise.name}</p>
