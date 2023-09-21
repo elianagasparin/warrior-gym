@@ -17,7 +17,7 @@ export const registerUserService = async ({ name, email, password }) => {
 };
 
 export const loginService = async ({ email, password }) => {
-    const response = await fetch(`${host}/users/login`, {
+    const response = await fetch(`${host}/user/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -40,12 +40,15 @@ export const userDataService = async (token) => {
         },
     });
     const json = await response.json();
-
+    console.log(json);
     if (!response.ok) {
         throw new Error(json.message);
     }
 
-    return json.token;
+    return {
+        isAdmin: json.data.admin,
+        userId: json.data.id,
+    };
 };
 
 export const getAllExercisesService = async (token) => {
