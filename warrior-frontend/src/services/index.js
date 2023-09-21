@@ -64,6 +64,24 @@ export const getAllExercisesService = async (token) => {
     return json.data;
 };
 
+export const newExerciseService = async ({ data, token }) => {
+    const response = await fetch(`${host}/exercises`, {
+        method: "POST",
+        body: data,
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+
+    return json.data;
+};
+
 export const getAllWorkoutsService = async (token) => {
     const response = await fetch(`${host}/workouts`, {
         headers: {
@@ -80,3 +98,89 @@ export const getAllWorkoutsService = async (token) => {
 
     return json.data;
 };
+
+export const getWorkoutInfoService = async (token, id) => {
+    const response = await fetch(`${host}/workouts/${id}`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.data);
+    return json.data;
+};
+
+export const getWorkoutExercisesService = async (token) => {
+    const response = await fetch(`${host}/workout/:id`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.data);
+    return json.data;
+};
+
+export const getLikedExercisesService = async (token) => {
+    const response = await fetch(`${host}/likes`, {
+        headers: {
+            Authorization: token,
+        },
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
+    console.log(json.exercises);
+    return json.exercises;
+};
+
+export const deleteExerciseService = async (id, token) => {
+    const response = await fetch(`${host}/exercises/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": token,
+        },
+        });
+    
+        const json = await response.json();
+    
+        if (!response.ok) {
+        throw new Error(json.message);
+        }
+
+        console.log(`Ejercicio con ID ${id} ha sido eliminado con éxito.`);
+    };
+
+    export const deleteWorkoutService = async (id, token) => {
+        const response = await fetch(`${host}/workouts/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": token,
+            },
+            });
+        
+            const json = await response.json();
+        
+            if (!response.ok) {
+            throw new Error(json.message);
+            }
+    
+            console.log(`Workout con ID ${id} ha sido eliminado con éxito.`);
+        };
+    

@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { getAllExercisesService } from "../services/index";
+import { getWorkoutExercisesService } from "../services/index";
+import { deleteWorkoutService } from "../services/index";
 
-export const useExercises = () => {
+export const useWorkoutExercises = () => {
     const [exercises, setExercises] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -13,7 +14,7 @@ export const useExercises = () => {
             try {
                 setLoading(true);
 
-                const data = await getAllExercisesService(token);
+                const data = await getWorkoutExercisesService(token);
                 console.log(data);
 
                 setExercises(data);
@@ -30,10 +31,20 @@ export const useExercises = () => {
         setExercises([exercise, ...exercises]);
     };
 
-    const deleteExercises = (exerciseId) => {
-        const updatedExercises = exercises.filter((exercise) => exercise.id !== exerciseId);
-        setExercises(updatedExercises);
-    };      
+    return { exercises, loading, error, addExercises };
+};
 
-    return { exercises, loading, error, addExercises, deleteExercises };
+export const useDeleteWorkout = () => {
+    const { token } = useContext(AuthContext);
+
+    const deleteWorkout = async (workoutId) => {
+        try {
+            await deleteWorkoutService(workoutId, token);
+
+        } catch (error) {
+            console.error("Error al eliminar el entrenamiento:", error);
+        }
+    };
+
+    return { deleteWorkout };
 };

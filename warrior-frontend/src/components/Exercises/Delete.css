@@ -1,0 +1,23 @@
+.delete-button {
+    position: absolute;
+    top: 179px;
+    left: 60px;
+    border: none;
+    background-color: transparent;
+}
+
+.delete-modal {
+    position: absolute;
+    top: 135px;
+    left: 100px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-modal p {
+    margin: 3px;
+}
+
+.delete-modal button {
+    margin-right: 10px;
+}

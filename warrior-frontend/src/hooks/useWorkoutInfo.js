@@ -1,31 +1,32 @@
+import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { getLikedExercisesService } from "../services/index";
+import { getWorkoutInfoService } from "../services/index";
 
-export const useLikedExercises = () => {
-    const [likedExercises, setLikedExercises] = useState([]);
+export const useWorkoutInfo = () => {
+    const [workouts, setWorkouts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const { token } = useContext(AuthContext);
+    const { id } = useParams();
 
     useEffect(() => {
-        const loadLikedExercises = async () => {
+        const loadWorkouts = async () => {
             try {
                 setLoading(true);
 
-                const data = await getLikedExercisesService(token);
+                const data = await getWorkoutInfoService(token, id);
                 console.log(data);
 
-                setLikedExercises(data);
+                setWorkouts(data);
             } catch (error) {
                 setError(error.message);
             } finally {
                 setLoading(false);
             }
         };
-
-        loadLikedExercises();
+        loadWorkouts();
     }, []);
 
-    return { likedExercises, loading, error };
+    return { workouts, loading, error };
 };

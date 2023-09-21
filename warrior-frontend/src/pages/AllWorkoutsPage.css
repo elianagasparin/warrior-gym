@@ -1,0 +1,9 @@
+.tituloWorkout {
+    color: white;
+    font-family: "Roboto Mono", monospace;
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: 400;
+    text-align: end;
+    padding: 1rem;
+}
